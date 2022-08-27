@@ -13,6 +13,7 @@ def listFilesRec(dir, files = {}):
                 files[entry].append(dir)
         elif os.path.isdir(realEntry):
             files = listFilesRec(dir + "/" + entry, files)
+
     return files
 
 if len(sys.argv) < 2 or not os.path.isdir(sys.argv[1]):
