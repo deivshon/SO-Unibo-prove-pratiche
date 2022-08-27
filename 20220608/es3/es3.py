@@ -9,8 +9,7 @@ uid = str(os.getuid())
 for p in procs:
     statusName = "/proc/" + p + "/status"
     uidFile = "/proc/" + p + "/loginuid"
-    if(not os.path.isfile(statusName)): continue
-    if(not os.path.isfile(uidFile)): continue
+    if(not os.path.isfile(statusName) or not os.path.isfile(uidFile)): continue
     with open(uidFile, "r") as f:
         pUid = f.read().strip()
     
