@@ -3,7 +3,7 @@
 #include <sys/wait.h>
 #include <stdlib.h>
 
-void do_ls_l_a() {
+void do_ls_la() {
     if(fork() == 0) {
         execlp("/usr/bin/ls", "ls", "-la");
     }
@@ -26,6 +26,6 @@ int main() {
     }
     printf("PID before calling do_ls_la %d\n", getpid());
 
-    do_ls_l_a();
+    do_ls_la();
     wait(NULL); // Wait until the process spawned by fork + execl ends  
 }
